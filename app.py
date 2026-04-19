@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from flask import Flask, render_template, redirect, url_for, request, session
 from werkzeug.security import check_password_hash
 from models import db, User, Item, Prestamo
@@ -132,7 +132,7 @@ def devolver_prestamo(prestamo_id):
 # -------------------
 if __name__ == '__main__':
     app.run(debug=True)
-=======
+
 from flask import Flask
 from flask import render_template
 app = Flask(__name__)
@@ -145,4 +145,3 @@ def home():
 if __name__ == "__main__":
     app.run(debug=True)
 
->>>>>>> 007de1675c34df35d1b74d5b0cb26b1ea566b4ef
