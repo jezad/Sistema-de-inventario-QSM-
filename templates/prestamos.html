@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Préstamos de Inventario</h2>
+<a href="/prestamos/add">Nuevo préstamo</a>
+
+<table border="1">
+    <tr>
+        <th>Item</th>
+        <th>Cantidad</th>
+        <th>Local</th>
+        <th>Usuario</th>
+        <th>Fecha Préstamo</th>
+        <th>Devuelto</th>
+        <th>Acciones</th>
+    </tr>
+    {% for p in prestamos %}
+    <tr>
+        <td>{{ p.item.nombre }}</td>
+        <td>{{ p.cantidad }}</td>
+        <td>{{ p.local }}</td>
+        <td>{{ p.usuario.username }}</td>
+        <td>{{ p.fecha_prestamo.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>{{ 'Sí' if p.devuelto else 'No' }}</td>
+        <td>
+            {% if not p.devuelto %}
+                <a href="/prestamos/devolver/{{ p.id }}">Devolver</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

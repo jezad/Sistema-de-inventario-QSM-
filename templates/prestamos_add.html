@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Nuevo Préstamo</h2>
+
+<form method="POST">
+    <label>Item:</label>
+    <select name="item_id" required>
+        {% for item in items %}
+        <option value="{{ item.id }}">{{ item.nombre }} ({{ item.cantidad }} disponibles)</option>
+        {% endfor %}
+    </select>
+    
+    <label>Cantidad:</label>
+    <input type="number" name="cantidad" min="1" required>
+    
+    <label>Local:</label>
+    <input type="text" name="local" required>
+    
+    <button type="submit">Registrar Préstamo</button>
+</form>
+{% endblock %}

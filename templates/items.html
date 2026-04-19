@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Inventario</h2>
+<a href="/items/add">Agregar Item</a>
+<ul>
+    {% for item in items %}
+        <li>{{ item.nombre }} - {{ item.cantidad }} unidades</li>
+    {% endfor %}
+</ul>
+{% endblock %}
